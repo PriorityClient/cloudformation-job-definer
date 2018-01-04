@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+'use strict';
+
+var _immutable = require('immutable');
+
+var _index = require('./index');
+
+var _index2 = _interopRequireDefault(_index);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+process.stdin.setEncoding('utf8');
+
+var fs = require('fs');
+var args = require('yargs');
+var argv = args.argv;
+
+var filename = argv._[0];
+var file = (0, _immutable.fromJS)(JSON.parse(fs.readFileSync(filename)));
+
+console.log(JSON.stringify((0, _index2.default)(file), {}, "\t"));
