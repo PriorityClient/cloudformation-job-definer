@@ -93,7 +93,7 @@ var lambda_for = function lambda_for(job) {
 		"Description": describe_lambda(job),
 		"Handler": "index.handler",
 		"Role": { "Fn::GetAtt": ["JobRunnerRole", "Arn"] },
-		"Runtime": "nodejs8.10",
+		"Runtime": "nodejs12.x",
 		"Timeout": 30,
 		"Environment": { "Variables": {
 				"BUCKET": job.get('tokenBucketName'),
